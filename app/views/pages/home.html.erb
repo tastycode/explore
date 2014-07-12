@@ -21,7 +21,10 @@
   <h1><%=@matches.count%> Matches</h1>
   <ul>
     <% @matches.each do |match| %>
-      <li><%=match.title%> <%=match.user.name %></li>
+      <li>
+      <img src="<%=match.user.fb_avatar_url%>"/>
+        <%=match.title%> <%=match.user.name %> 
+    </li>
     <% end %>
   </ul>
 <% end %>
