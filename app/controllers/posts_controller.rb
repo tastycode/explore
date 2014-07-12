@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to user_url(@post.recipient_id)
     else
