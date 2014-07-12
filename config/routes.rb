@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks' } do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
-  resources :users, only: [:show]
-  resources :reviews
+  resources :users, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
   resources :posts
   root "pages#home"
   post "search_login" => "login#store_and_redirect"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

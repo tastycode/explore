@@ -30,6 +30,9 @@
           <img class="round-square-50" src="<%=user.fb_avatar_url%>"/>
           <div class="profile-small data">
             <h2 class="headline-large"><%= user.name %></h2> 
+            <div class="rating">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
             
             <% if user.actions.abilities.any? %>
               <span class="profile-small section-title">Can:</span>
@@ -52,6 +55,10 @@
                 <% end %>
               </div>
             <% end %>
+            <div class="ctas">
+              <a href="<%=user_path(user)%>" class="button">Chat</a>
+              <a href="<%=new_user_review_path(user)%>" class="button">Review</a>
+            </div>
           </div>
       </li>
       <% end %>

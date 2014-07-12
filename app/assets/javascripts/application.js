@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require angular
+//= require angular-ui-bootstrap-tpls
+angular.module('fair', ['ui.bootstrap']);
+function MainCtrl($scope) {
+}

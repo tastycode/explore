@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="fair">
 <head>
-  <title>Fair</title>
+  <title>Smurf</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-controller="MainCtrl">
   <header class="navigation">
     <div class="navigation-wrapper">
       <a href="javascript:void(0)" class="logo">

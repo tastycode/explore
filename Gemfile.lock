@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angular-ui-bootstrap-rails (0.11.0)
+    angularjs-rails (1.2.19)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
@@ -39,6 +41,7 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
+    bootstrap-sass (2.1.0.0)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -72,6 +75,9 @@ GEM
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -230,12 +236,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-ui-bootstrap-rails
+  angularjs-rails
   better_errors
   binding_of_caller
   bitters
+  bootstrap-sass
   bourbon
   coffee-rails (~> 4.0.0)
   devise
+  font-awesome-sass-rails
   jazz_hands
   jbuilder (~> 2.0)
   jquery-rails

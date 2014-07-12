@@ -1,3 +1,5 @@
+@import "bootstrap";
+@import "font-awesome";
 @import "bourbon";
 @import "fonts";
 @import "base/base";
@@ -10,6 +12,9 @@
 @import "modules/nav";
 @import "modules/hero";
 @import "modules/profiles";
+@import "modules/reviews";
+
+
 html, body, .container {
   min-height: 100%;
 }
@@ -50,6 +55,12 @@ html, input, select, textarea {
 .headline-medium {
   font-size: $fs-medium;
   line-height: 1.4;
+}
+.m-medium {
+  margin: $gap-medium;
+}
+.bm-large {
+  margin-bottom: $gap-large;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

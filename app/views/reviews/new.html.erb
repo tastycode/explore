@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="text-center">
+    <h1 class="headline-xlarge m-medium">Review: <%=@review.user.name%></h1>
+  </div>
+
+  <%= form_tag(user_reviews_path(@review.user), method: 'post', class: 'review-form') do |f|%>
+    <div class="bm-large">
+      <label class="left-field action-label" for="review[action]">For:</label>
+      <%= select_tag :action, options_for_select(@review.user.actions.abilities.map{|a| [a.title, a.id]}), class: "field action-field"%>
+    </div>
+
+    <div class="bm-large text-center" ng-init="rating = 0">
+
+      <rating class="gold" value="rating" ng-model="rating"/>
+      <input id="review_rating" class="numeric integer optional" name="review[rating]" step="1" type="text" ng-model="rating"/>
+    </span>
+
+    <div class="bm-large">
+      <label class="action-label" for="review[comments]">How was your experience?</label>
+      <br/>
+      <textarea class="field" name="review[comments]" rows="20" cols="10"></textarea>
+    </div>
+      <input type="submit">
+  <% end %>
+  </form>
+</div>

@@ -42,6 +42,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
+gem 'bootstrap-sass'
+gem 'font-awesome-sass-rails'
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
