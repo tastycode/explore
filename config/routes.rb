@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks' } do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
-
+  resources :users, only: [:show]
+  resources :reviews
+  resources :posts
   root "pages#home"
   post "search_login" => "login#store_and_redirect"
 

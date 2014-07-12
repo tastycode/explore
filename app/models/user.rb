@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :identities
   has_many :actions
-
-
+  has_many :reviews
+  has_many :posts
   def last_ability
     actions.where(action_type: 'ability').last
   end

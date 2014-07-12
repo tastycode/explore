@@ -1,0 +1,66 @@
+Work with <%= @user.name %>
+
+<br>
+
+Can:
+
+<% @user.actions.where(action_type: "ability").each do |action| %>
+	<%= action.title%>
+
+<%end%>
+
+<br>
+	<% @user.reviews.each do |review| %>
+		<%= review.comments%>
+	<%end%> 
+	
+<br>
+Ratings:
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Let's work together</h1>
+	
+<form action="<%= posts_url %>" method="POST">
+	
+	<textarea name="post[body]"></textarea>
+	<input type="hidden" name="post[author_id]" value= <%= current_user.id %>>
+	<input type="hidden" name="post[recipient_id]" value="<%= params[:id] %>">
+	
+	
+	
+	<p><input type="submit" value="Send"></p>
+</form>
+
+
+<ul>
+<% Post.all.each do |post| %>
+
+<li><%= post.body %></li>
+
+<% end %>
+
+</ul>
+
+<h3>Review Me!</h1>
+	
+<form action="<%= reviews_url %>" method="POST">
+	
+	<textarea name="review[comments]">Tell me how I did</textarea>
+
+	<input type="hidden" name="review[user_id]" value="<%= params[:id] %>">
+	
+	
+	
+	<p><input type="submit" value="Send"></p>
+</form>
+
