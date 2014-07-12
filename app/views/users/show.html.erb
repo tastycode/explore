@@ -1,66 +1,25 @@
-Work with <%= @user.name %>
 
-<br>
-
-Can:
-
-<% @user.actions.where(action_type: "ability").each do |action| %>
-	<%= action.title%>
-
-<%end%>
-
-<br>
-	<% @user.reviews.each do |review| %>
-		<%= review.comments%>
-	<%end%> 
+<div class="main">
+		<h5 class= "headline-xlarge">Chat with <%= @user.name %></h3>
 	
-<br>
-Ratings:
+		
 
+		<div class ="headline-large">Let's Work Together</div>
 
+		
+		<div>
+			<% Post.all.each do |post| %>
+			<b><%=post.user.name%>:</b>
+			
+			<div class="headline-medium bm-medium"><%= post.body %></div>
 
-
-
-
-
-
-
-
-
-
-<h3>Let's work together</h1>
-	
-<form action="<%= posts_url %>" method="POST">
-	
-	<textarea name="post[body]"></textarea>
-	<input type="hidden" name="post[author_id]" value= <%= current_user.id %>>
-	<input type="hidden" name="post[recipient_id]" value="<%= params[:id] %>">
-	
-	
-	
-	<p><input type="submit" value="Send"></p>
-</form>
-
-
-<ul>
-<% Post.all.each do |post| %>
-
-<li><%= post.body %></li>
-
-<% end %>
-
-</ul>
-
-<h3>Review Me!</h1>
-	
-<form action="<%= reviews_url %>" method="POST">
-	
-	<textarea name="review[comments]">Tell me how I did</textarea>
-
-	<input type="hidden" name="review[user_id]" value="<%= params[:id] %>">
-	
-	
-	
-	<p><input type="submit" value="Send"></p>
-</form>
+			<% end %>
+		</div>
+		<form action="<%= posts_url %>" method="POST">
+			<textarea name="post[body]"></textarea>
+			<input type="hidden" name="post[author_id]" value= <%= current_user.id %>>
+			<input type="hidden" name="post[recipient_id]" value="<%= params[:id] %>">
+			<p style="text-align:right"><input type="submit" value="Send" class="button"></p>
+		</form>
+</div>
 
