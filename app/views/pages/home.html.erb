@@ -31,7 +31,7 @@
           <div class="profile-small data">
             <h2 class="headline-large"><%= user.name %></h2> 
             <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> (<%=rand(1..10)%> reviews)
             </div>
             
             <% if user.actions.abilities.any? %>
