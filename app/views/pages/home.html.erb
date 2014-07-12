@@ -1,0 +1,27 @@
+
+<form action="<%=search_login_path%>" method="POST">
+  <label>I need:</label>
+  <input name="wants" value="<%=current_user.try(:last_want).try(:title)%>"/>
+  <label>I can:</label>
+  <input name="ability" value="<%=current_user.try(:last_ability).try(:title)%>"/>
+  <input type="submit" value="fb login">
+
+</form>
+<% if current_user %>
+
+  <%= link_to "Logout", destroy_user_session_path, method: 'delete'%>
+<% else %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+<% end %>
+<%= current_user %>
+
+
+<% if @matches.present? %>
+  <h1><%=@matches.count%> Matches</h1>
+  <ul>
+    <% @matches.each do |match| %>
+      <li><%=match.title%> <%=match.user.name %></li>
+    <% end %>
+  </ul>
+<% end %>

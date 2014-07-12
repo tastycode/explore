@@ -1,0 +1,22 @@
+users
+  auth info
+
+
+actions
+  action_type ability|want
+  user_id
+  title
+
+abilities
+  user_id
+  title
+
+wants
+  user_id
+  title
+
+reviews
+  user_id
+  action_id
+  stars
+  notes
