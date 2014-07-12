@@ -1,0 +1,31 @@
+.round-square-50 {
+  border-radius: 25px;
+}
+.profile-small {
+  &.list {
+    @include span-columns(8);
+  }
+  &.item {
+    list-style-type: none;
+    @include md;
+    min-height: 150px;
+  }
+  &.data {
+    margin-left: $gap-medium;
+    @include md-body;
+  }
+}
+
+.profile {
+  &.actions {
+    display: inline-block;
+  }
+  &.action {
+    display: inline-block;
+    background: $blue;
+    margin: $gap-xsmall;
+    padding: $gap-xsmall $gap-small;
+    border-radius: 3px;
+    color: $white;
+  }
+}
