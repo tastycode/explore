@@ -8,6 +8,20 @@ class User < ActiveRecord::Base
   has_many :actions
   has_many :reviews
   has_many :posts
+
+
+
+  def find_matches
+    ability_candidates = actions.abilities.map do |action|
+      Action.wants.where("id != #{id}").where("title like '%#{action.title}%'").to_a
+    end.flatten
+    want_candidates = actions.wants.map do |action|
+      Action.abilities.where("id != #{id}").where("title like '%#{action.title}%'").to_a
+    end.flatten
+    matches = ability_candidates | want_candidates
+    matches.map(&:user).uniq
+  end
+
   def last_ability
     actions.where(action_type: 'ability').last
   end

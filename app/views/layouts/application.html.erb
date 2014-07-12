@@ -7,6 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="navigation">
+    <div class="navigation-wrapper">
+      <a href="javascript:void(0)" class="logo">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+      </a>
+      <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+      <div class="nav">
+        <ul id="navigation-menu">
+          <li class="nav-link"><a href="javascript:void(0)">Home</a></li>
+          <li class="nav-link"><a href="javascript:void(0)">Needs</a></li>
+          <li class="nav-link"><a href="javascript:void(0)">Wants</a></li>
+          <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+          <% if current_user %>
+            <li class="nav-link"> <%= link_to "Logout", destroy_user_session_path, method: 'delete'%></li>
+          <% else %>
+            <li><%= link_to "Login", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </header>
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
 

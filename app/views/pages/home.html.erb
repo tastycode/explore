@@ -1,30 +1,61 @@
 
-<form action="<%=search_login_path%>" method="POST">
-  <label>I need:</label>
-  <input name="wants" value="<%=current_user.try(:last_want).try(:title)%>"/>
-  <label>I can:</label>
-  <input name="ability" value="<%=current_user.try(:last_ability).try(:title)%>"/>
-  <input type="submit" value="fb login">
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>exchange services without money</h1>
+      <form class="hero-form" action="<%=search_login_path%>" method="POST">
+        <label class="left-field">I need:</label>
+        <input class="field hero-field" name="wants" type="text"  value="<%=current_user.try(:last_want).try(:title)%>" placeholder="piano lessons"/>
+        <br/>
+        <label class="left-field">I can:</label>
+        <input class="field hero-field" name="ability" type="text"  value="<%=current_user.try(:last_ability).try(:title)%>" placeholder="paint"/>
+        <br/>
+        <div class="text-center">
+          <%if current_user %>
+            <input class="button" type="submit" value="login with facebook">
+          <%else %>
+            <input class="button" type="submit" value="search">
+          <%end%>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <% if @matches.present? %>
+    <h1 class="headline-xlarge"><%=@matches.count%> Matches</h1>
+    <ul class="profile-small list">
+      <% @matches.each do |user| %>
+        <li class="profile-small item">
+          <img class="round-square-50" src="<%=user.fb_avatar_url%>"/>
+          <div class="profile-small data">
+            <h2 class="headline-large"><%= user.name %></h2> 
+            
+            <% if user.actions.abilities.any? %>
+              <span class="profile-small section-title">Can:</span>
+              <div class="profile actions">
+                <% user.actions.abilities.each do |action| %>
+                  <div class="profile action">
+                    <%=action.title%> 
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+            <br/>
+            <% if user.actions.wants.any? %>
+              <span class="profile-small section-title">Needs:</span>
+              <div class="profile actions">
+                <% user.actions.wants.each do |action| %>
+                  <div class="profile action">
+                    <%=action.title%> 
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
-</form>
-<% if current_user %>
-
-  <%= link_to "Logout", destroy_user_session_path, method: 'delete'%>
-<% else %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-
-<% end %>
-<%= current_user %>
-
-
-<% if @matches.present? %>
-  <h1><%=@matches.count%> Matches</h1>
-  <ul>
-    <% @matches.each do |match| %>
-      <li>
-      <img src="<%=match.user.fb_avatar_url%>"/>
-        <%=match.title%> <%=match.user.name %> 
-    </li>
-    <% end %>
-  </ul>
-<% end %>

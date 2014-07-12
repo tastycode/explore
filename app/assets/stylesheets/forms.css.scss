@@ -1,0 +1,68 @@
+ulegend.section-header {
+  border-bottom: 1px solid $grey2;
+  display: block;
+  font-weight: $weight-semibold;
+  font-size: $fs-medium;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+
+label.above-field {
+  display: block;
+  padding-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+input.field, select.field {
+  height: 2em;
+}
+
+input.field, select.field, textarea.field {
+  border-radius: 4px;
+  border: 1px solid $grey3;
+  padding: 0.3em 0.6em;
+  width: 100%;
+}
+
+input.inline-field.error {
+  border-color: $red;
+  &:last-child {
+    border-color: $red;
+  }
+}
+
+.inline-field-error {
+  border-radius: 3px;
+  border: 1px solid $red;
+  color: $red;
+  margin: $gap-small 0px;
+  padding: $gap-small;
+}
+
+
+
+input.inline-field {
+  border: 1px solid $grey3;
+  border-bottom: none;
+  height: 3em;
+  padding: 0.3em 0.6em;
+  width: 100%;
+  &:last-child {
+    border-radius: 0 0 3px 3px;
+    border: 1px solid $grey3;
+  }
+
+}
+.left-field {
+  display: inline-block;
+  width: 5em;
+}
+
+.field-error {
+  margin-top: $gap-small;
+  color: $red;
+}
+
+

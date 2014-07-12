@@ -1,6 +1,56 @@
 @import "bourbon";
+@import "fonts";
+@import "base/base";
 @import "neat";
+@import "reset";
+@include reset-and-normalize;
 
+@import "variables";
+@import "forms";
+@import "modules/nav";
+@import "modules/hero";
+@import "modules/profiles";
+html, body, .container {
+  min-height: 100%;
+}
+
+html {
+  font-size: $fs-root;
+}
+
+html, input, select, textarea {
+  font-family: $font-proxima-nova;
+}
+
+.main {
+  @include outer-container;
+}
+
+.full {
+  @include span-columns(12);
+}
+
+.button {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.headline-xlarge {
+  font-size: $fs-xlarge;
+  line-height: 1.4;
+}
+
+.headline-large {
+  font-size: $fs-large;
+  line-height: 1.4;
+}
+.headline-medium {
+  font-size: $fs-medium;
+  line-height: 1.4;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,3 +65,4 @@
  *
  *= require_self
  */
+

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     if current_user
-      @matches = Action.find_matches_for(current_user)
+      @matches = User.all#current_user.find_matches
     end
   end
 end
