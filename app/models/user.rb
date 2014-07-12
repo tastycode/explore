@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     actions.where(action_type: 'ability').last
   end
 
+  def fb_avatar_url
+    "http://graph.facebook.com/#{fb.uid}/picture?type=square"
+  end
+
   def last_want
     actions.where(action_type: 'want').last
   end
